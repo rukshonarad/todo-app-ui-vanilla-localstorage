@@ -1,3 +1,10 @@
+class Storage {
+    get() {
+        const todos = localStorage.getItem("todos");
+        JSON.parse(todos);
+    }
+}
+
 class TodoApp {
     static ul = document.querySelector(".todos");
     constructor() {
