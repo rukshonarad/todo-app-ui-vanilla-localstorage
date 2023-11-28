@@ -3,6 +3,11 @@ class Storage {
         const todos = localStorage.getItem("todos");
         JSON.parse(todos);
     }
+    add(todo) {
+        const existingTodos = this.get();
+        existingTodos.push(todo);
+        this.setTodos(existingTodos);
+    }
 }
 
 class TodoApp {
