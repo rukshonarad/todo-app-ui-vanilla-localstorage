@@ -13,6 +13,19 @@ class Storage {
         const keptTodos = existingTodos.filter((todo) => todo.id !== id);
         this.setTodos(keptTodos);
     }
+    setTodos(updatedTodos) {
+        localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    }
+    changeStatus(id, status) {
+        const existingTodos = this.get();
+        for (const todo of existingTodos) {
+            if (todo.id === id) {
+                todo.status = status;
+            }
+        }
+
+        this.setTodos(existingTodos);
+    }
 }
 
 class TodoApp {
