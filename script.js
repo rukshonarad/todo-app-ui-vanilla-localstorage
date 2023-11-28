@@ -8,6 +8,11 @@ class Storage {
         existingTodos.push(todo);
         this.setTodos(existingTodos);
     }
+    delete(id) {
+        const existingTodos = this.get();
+        const keptTodos = existingTodos.filter((todo) => todo.id !== id);
+        this.setTodos(keptTodos);
+    }
 }
 
 class TodoApp {
